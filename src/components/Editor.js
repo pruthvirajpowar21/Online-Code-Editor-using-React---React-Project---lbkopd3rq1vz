@@ -16,9 +16,18 @@ export default function Editor(props) {
     onChange
   } = props
   const [open, setOpen] = useState(true)
+  const [layout, setLayout] = useState("default")
 
   function handleChange(editor, data, value) {
     onChange(value)
+  }
+
+  function handleClear() {
+    onChange("")
+  }
+
+  function handleLogin() {
+    window.location.href = "https://codepen.io/login"
   }
 
   return (
@@ -36,7 +45,7 @@ export default function Editor(props) {
       <ControlledEditor
         onBeforeChange={handleChange}
         value={value}
-        className="code-mirror-wrapper"
+        className={`code-mirror-wrapper ${layout}`}
         options={{
           lineWrapping: true,
           lint: true,
@@ -45,6 +54,11 @@ export default function Editor(props) {
           lineNumbers: true
         }}
       />
-    </div>
+  
+        
+        <button type="button" className="clear-btn" onClick={handleClear}>Clear All Code</button>
+        
+      </div>
+  
   )
 }
