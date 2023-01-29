@@ -57,3 +57,6 @@ body {
   border-bottom-left-radius: .5rem;
   overflow: hidden;
 }
+.wrapper {
+  padding: 20px;
+}
